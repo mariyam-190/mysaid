@@ -145,7 +145,7 @@ class LoginScreenState extends State<LoginScreen> {
                           primary: Colors.white,
                         ),
                       ),
-                      SizedBox(height: 10),
+                    SizedBox(height: 30),
                       TextButton(
                         child: Text(
                           'التواصل مع الدعم ',
@@ -156,10 +156,86 @@ class LoginScreenState extends State<LoginScreen> {
                           ),
                         ),
                         onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => pageone()),
-                          );
+                           showDialog(
+                            context: context,
+                            builder: (context) => AlertDialog(
+                                  backgroundColor: Colors.transparent,
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.all(
+                                          Radius.circular(15))),
+                                  actions: [
+                                    Container(
+                                      child: Column(
+                                        children: [
+                                          Container(
+                                            margin: EdgeInsets.only(top: 480),
+                                          ),
+                                          RaisedButton(
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.min,
+                                              children: [
+                                                 Text(
+                                              ' 00966 55 444 3333   مكالمة',
+                                              style: TextStyle(
+                                                fontSize: 14.0,
+                                                fontWeight: FontWeight.w700,
+                                                color: Color.fromRGBO(
+                                                    50, 185, 215, 1),
+                                                fontFamily: 'NotoBold',
+                                              ),
+                                            ), // <-- Text
+                                                SizedBox(
+                                                  width: 5,
+                                                ),
+                                                Icon(
+                                                  // <-- Icon
+                                                  Icons.phone,color: Color(0xFF0268B2),
+                                                  size: 24.0,
+                                                ),
+                                              ],
+                                            ),
+                                            color: Colors.white,
+                                            hoverColor: Colors.blue[500],
+                                            padding: EdgeInsets.fromLTRB(
+                                                30, 20, 30, 20),
+                                            shape: RoundedRectangleBorder(
+                                                borderRadius: BorderRadius.all(
+                                                    Radius.circular(10))),
+                                         
+                                            onPressed: () {
+                                              Navigator.pop(context);
+                                            },
+                                          ),
+                                          Container(
+                                            margin: EdgeInsets.only(top: 35),
+                                          ),
+                                          RaisedButton(
+                                            color: Colors.white,
+                                            hoverColor: Colors.blue[500],
+                                            padding: EdgeInsets.fromLTRB(
+                                                127, 20, 127, 20),
+                                            shape: RoundedRectangleBorder(
+                                                borderRadius: BorderRadius.all(
+                                                    Radius.circular(10))),
+                                            child: Text(
+                                              'إلغاء',
+                                              style: TextStyle(
+                                                fontSize: 14.0,
+                                                fontWeight: FontWeight.w700,
+                                                color: Color.fromRGBO(
+                                                    50, 185, 215, 1),
+                                                fontFamily: 'NotoBold',
+                                              ),
+                                            ),
+                                            onPressed: () {
+                                              Navigator.pop(context);
+                                            },
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ));
                         },
                         style: TextButton.styleFrom(
                           primary: Colors.white,
@@ -256,7 +332,7 @@ class LoginScreenState extends State<LoginScreen> {
         backgroundColor:
             MaterialStateProperty.all(Color.fromRGBO(50, 185, 215, 1)),
         foregroundColor: MaterialStateProperty.all(Colors.white),
-        padding: MaterialStateProperty.all(EdgeInsets.fromLTRB(113, 25, 113, 25)),
+        padding: MaterialStateProperty.all(EdgeInsets.fromLTRB(113, 20, 113, 20)),
         shape: MaterialStateProperty.all(
           RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(11),

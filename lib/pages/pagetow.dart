@@ -54,14 +54,14 @@ class pagetow extends StatelessWidget {
                   RaisedButton(
                     color: Colors.white,
                     hoverColor: Color.fromRGBO(50, 185, 215, 1),
-                    padding: EdgeInsets.fromLTRB(40, 20, 40, 20),
+                    padding: EdgeInsets.fromLTRB(45, 23, 45, 23),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(10))),
                     child: Text(
                       'تسجيل جديد',
                       style: TextStyle(
                         color: Colors.blue[900],
-                        fontSize: 14.0,
+                        fontSize: 15.0,
                         fontWeight: FontWeight.w700,
                       ),
                     ),
@@ -73,7 +73,7 @@ class pagetow extends StatelessWidget {
                   RaisedButton(
                     color: Colors.white,
                     hoverColor: Color.fromRGBO(50, 185, 215, 1),
-                    padding: EdgeInsets.fromLTRB(40, 20, 40, 20),
+                    padding: EdgeInsets.fromLTRB(45, 23, 45, 23),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(10))),
                     child: Text(

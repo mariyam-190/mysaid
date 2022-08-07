@@ -141,6 +141,7 @@ class _saleListState extends State<saleList> {
               ),
             ),
           ),
+          SizedBox(height: 5),
           Container(
             width: 300,
             child: Align(
@@ -148,6 +149,7 @@ class _saleListState extends State<saleList> {
               child: Text(
                 //  '09:41 pm , 2022/10/1 Fri'
                 DateTime.now().toString(),
+                
                 style: TextStyle(
                   color: Colors.grey[500],
                   fontSize: 9.0,
@@ -198,7 +200,9 @@ class _saleListState extends State<saleList> {
 
           Padding(
               padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-              child: Row(mainAxisAlignment: MainAxisAlignment.end, children: [
+              child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly
+              
+              , children: [
                 Container(
                     decoration: BoxDecoration(
                       color: Colors.white,
