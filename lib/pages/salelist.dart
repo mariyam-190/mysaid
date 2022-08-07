@@ -3,8 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:mysaid/pages/pageone.dart';
 import 'package:mysaid/pages/pagetow.dart';
 import 'package:mysaid/screen/login.dart';
-import 'package:syncfusion_flutter_datagrid/datagrid.dart';
-import 'package:syncfusion_flutter_core/theme.dart';
+
 
 class saleList extends StatefulWidget {
   @override
@@ -21,15 +20,8 @@ TableRow buildRow(List<String> cells) => TableRow(
     );
 
 class _saleListState extends State<saleList> {
-   List<Employee> employees = <Employee>[];
-  late EmployeeDataSource employeeDataSource;
+  
 
-  @override
-  void initState() {
-    super.initState();
-    employees = getEmployeeData();
-    employeeDataSource = EmployeeDataSource(employeeData: employees);
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -331,168 +323,6 @@ class _saleListState extends State<saleList> {
                 Text('  من'),
               ])),
         
-    
-                      Scrollbar(
-            child: ListView(
-              children: <Widget>[
-                SingleChildScrollView(
-                    scrollDirection: Axis.vertical,
-                    child: SfDataGridTheme(
-                      data: SfDataGridThemeData(
-                        frozenPaneElevation: 0.0,
-                        frozenPaneLineColor: Colors.red,
-                        frozenPaneLineWidth: 1.5,
-                      ),
-                      child: SfDataGrid(
-                        allowSwiping: true,
-                        swipeMaxOffset: 100.0,
-                        source: employeeDataSource,
-                        footerFrozenRowsCount: 2,
-                        columnWidthMode: ColumnWidthMode.fill,
-                        columns: <GridColumn>[
-                          GridColumn(
-                              columnName: 'price',
-                              label: Container(
-                                  padding: EdgeInsets.all(8.0),
-                                  alignment: Alignment.center,
-                                  child: Text(
-                                    'السعر',
-                                    style: TextStyle(
-                                        color: Color.fromRGBO(50, 185, 215, 1),
-                                        fontWeight: FontWeight.w900),
-                                    overflow: TextOverflow.ellipsis,
-                                  ))),
-                          GridColumn(
-                              columnName: 'Quantity',
-                              label: Container(
-                                  padding: EdgeInsets.all(8.0),
-                                  alignment: Alignment.center,
-                                  child: Text(
-                                    'الكمية',
-                                    style: TextStyle(
-                                        color: Color.fromRGBO(50, 185, 215, 1),
-                                        fontWeight: FontWeight.w900),
-                                  ))),
-                          GridColumn(
-                              columnName: 'element',
-                              label: Container(
-                                  padding: EdgeInsets.all(6.0),
-                                  alignment: Alignment.center,
-                                  child: Text(
-                                    'العنصر',
-                                    style: TextStyle(
-                                        color: Color.fromRGBO(50, 185, 215, 1),
-                                        fontWeight: FontWeight.w900),
-                                  ))),
-                        ],
-                      ),
-                    )),
-                
-                  ],
-                ),
-           ) ])));
-           
-        
-  }
-
-  List<Employee> getEmployeeData() {
-    return [
-      Employee(10001, 'James',
-          'Project Lead Project LeadProject LeadProject LeadProject LeadProject Lead'),
-      Employee(10002, 'Kathryn', 'Manager'),
-      Employee(10003, 'Lara', 'Developer'),
-      Employee(10004, 'Michael', 'Designer'),
-      Employee(10005, 'Martin', 'Developer'),
-      Employee(10006, 'Newberry', 'Developer'),
-      Employee(10007, 'Balnc', 'Developer'),
-      Employee(10008, 'Perry', 'Developer'),
-      Employee(10009, 'Gable', 'Developer'),
-      Employee(10010, 'Grimes', 'Developer'),
-      Employee(10001, 'James', 'Project Lead'),
-      Employee(10002, 'Kathryn', 'Manager'),
-      Employee(10003, 'Lara', 'Developer'),
-      Employee(10004, 'Michael', 'Designer'),
-      Employee(10005, 'Martin', 'Developer'),
-      Employee(10006, 'Newberry', 'Developer'),
-      Employee(10007, 'Balnc', 'Developer'),
-      Employee(10008, 'Perry', 'Developer'),
-      Employee(10009, 'Gable', 'Developer'),
-      Employee(10010, 'Grimes', 'Developer'),
-      Employee(10001, 'James', 'Project Lead'),
-      Employee(10002, 'Kathryn', 'Manager'),
-      Employee(10003, 'Lara', 'Developer'),
-      Employee(10004, 'Michael', 'Designer'),
-      Employee(10005, 'Martin', 'Developer'),
-      Employee(10006, 'Newberry', 'Developer'),
-      Employee(10007, 'Balnc', 'Developer'),
-      Employee(10008, 'Perry', 'Developer'),
-      Employee(10009, 'Gable', 'Developer'),
-      Employee(10010, 'Grimes', 'Developer'),
-      Employee(10001, 'James', 'Project Lead'),
-      Employee(10002, 'Kathryn', 'Manager'),
-      Employee(10003, 'Lara', 'Developer'),
-      Employee(10004, 'Michael', 'Designer'),
-      Employee(10005, 'Martin', 'Developer'),
-      Employee(10006, 'Newberry', 'Developer'),
-      Employee(10007, 'Balnc', 'Developer'),
-      Employee(10008, 'Perry', 'Developer'),
-      Employee(000, 'الضريبة', 'المجموع النهائي'),
-      Employee(10010, 'Grimes', 'Developer'),
-    ];
-  }
-}
-
-/// Custom business object class which contains properties to hold the detailed
-/// information about the employee which will be rendered in datagrid.
-class Employee {
-  /// Creates the employee class with required details.
-  Employee(this.element, this.Quantity, this.price);
-
-  /// element of an employee.
-  final int element;
-
-  /// Name of an employee.
-  final String Quantity;
-
-  /// Designation of an employee.
-  final String price;
-
-  /// Salary of an employee.
-
-}
-
-/// An object to set the employee collection data source to the datagrid. This
-/// is used to map the employee data to the datagrid widget.
-class EmployeeDataSource extends DataGridSource {
-  /// Creates the employee data source class with required details.
-  EmployeeDataSource({required List<Employee> employeeData}) {
-    _employeeData = employeeData
-        .map<DataGridRow>((e) => DataGridRow(cells: [
-              DataGridCell<int>(columnName: 'id', value: e.element),
-              DataGridCell<String>(columnName: 'name', value: e.Quantity),
-              DataGridCell<String>(columnName: 'designation', value: e.price),
-            ]))
-        .toList();
-  }
-
-  List<DataGridRow> _employeeData = [];
-
-  @override
-  List<DataGridRow> get rows => _employeeData;
-
-  @override
-  DataGridRowAdapter buildRow(DataGridRow row) {
-    return DataGridRowAdapter(
-        cells: row.getCells().map<Widget>((e) {
-      return Container(
-        alignment: Alignment.center,
-        padding: EdgeInsets.all(3.0),
-        child: Text(e.value.toString()),
-      );
-    }).toList());
-  }
-}
-
-                      
-                      
-          
+          ])));
+            
+            }}
